@@ -1,5 +1,5 @@
 
-# A railway reservation system
+# An electronic election system
 
 This is an electronic election system written in django(python).
 
