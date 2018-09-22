@@ -1,0 +1,4 @@
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, e_voting_system, sessions
+Running migrations:
+  Applying e_voting_system.0014_auto_20180105_1315...

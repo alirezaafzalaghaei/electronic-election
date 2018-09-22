@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+    {{ error }} <br>
+    حداکثر میتونی به {{ max }} نفر رای بدی
+    <br>
+    اطلاعات کاندید ها:
+    {% for can in info %}
+        <div>
+            {{ can.0 }}: {{ can.1 }}
+            <img src="/media/{{ can.2 }}" width="100">
+        </div>
+    {% endfor %}
+
+    {% if result %}
+        {{ result }}
+        <a href="{{ request.path }}/result">نتیجه</a>
+    {% else %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {% for hidden_field in form.hidden_fields %}
+                {{ hidden_field.errors }}
+                {{ hidden_field }}
+            {% endfor %}
+
+            {{ form.choices.label_tag }}
+            {{ form.choices }}
+            {{ form.choices.errors }}
+            {{ form.choices.help_text }}
+            <button>submit</button>
+        </form>
+    {% endif %}
+
+{% endblock content %}

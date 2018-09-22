@@ -1,0 +1,51 @@
+
+
+<html>
+  <head>
+<link rel="stylesheet" href="/static/style.css" type="text/css" media="screen" >
+  </head>
+  <body>
+    <div class="container">
+      <header>
+          <h1><a href="/">E voting system</a></h1>
+      </header>
+    
+        سلام  admin
+
+        <a href="/elections">elections</a>
+        <a href="/register">register</a>
+        <a href="/logout">logout</a><br>
+    
+
+
+
+      
+    <div class="grid">
+        <div id="login">
+            <h2><span class="fontawesome-lock"></span>Sign In</h2>
+            <form method="POST">
+                <input type='hidden' name='csrfmiddlewaretoken' value='cVnRs4gmH9tfv4bqHfud5xadmptK7vzwQhOTx5GjsAdSulMpbS5sba9A9J8oG80N' />
+                
+                
+                <fieldset>
+                    
+                        <p><label for="pin">Pin:</label></p>
+                        <p><input type="text" name="PIN" id="pin" placeholder="1240032119" maxlength="10" minlength="10" required /></p>
+                        
+                        
+                    
+                        <p><label for="password">Password:</label></p>
+                        <p><input type="password" name="password" id="password" placeholder="password" required /></p>
+                        
+                        
+                    
+
+                    <p><input type="submit" value="Sign In"></p>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    </div>
+  </body>
+</html>

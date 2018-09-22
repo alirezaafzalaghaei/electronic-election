@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+    {#    <br><b>شرکت کردین:</b></br>#}
+    {#    {% for election in done %}#}
+    {#        {{ election }} : <a href="/elections/{{ election.id }}/result">نتیجه</a><br>#}
+    {#    {% endfor %}#}
+    {#    <br>    میتونین شرکت کنین    <br>#}
+    {#    {% for election in notdone %}#}
+    {#        <a href="/elections/{{ election.id }}">{{ election }}</a><br>#}
+    {#    {% endfor %}#}
+
+    {% for election in all %}
+        {{ election.1 }}
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        {% if election.0 %}
+            شرکت کردی
+        {% else %}
+            شرکت نکردی
+        {% endif %}
+        {% if not election.2 %}
+            هنوز تموم نشده
+            <a href="/elections/{{ election.1.id }}">بریم بدیم</a>
+
+        {% elif election.3 %}
+            هنوز شروع نشده
+        {% else %}
+            مهلت تموم شده
+            <a href="/elections/{{ election.1.id }}/result">نتیجه</a>
+        {% endif %}
+        <br>
+    {% endfor %}
+
+{% endblock content %}

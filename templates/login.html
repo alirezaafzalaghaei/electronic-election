@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="grid">
+        <div id="login">
+            <h2><span class="fontawesome-lock"></span>Sign In</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {% for hidden_field in form.hidden_fields %}
+                    {{ hidden_field.errors }}
+                    {{ hidden_field }}
+                {% endfor %}
+                <fieldset>
+                    {% for field in form.visible_fields %}
+                        <p>{{ field.label_tag }}</p>
+                        <p>{{ field }}</p>
+                        {{ field.errors }}
+                        {{ field.help_text }}
+                    {% endfor %}
+
+                    <p><input type="submit" value="Sign In"></p>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}

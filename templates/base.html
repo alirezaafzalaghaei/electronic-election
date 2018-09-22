@@ -1,0 +1,32 @@
+{% load static from staticfiles %}
+<html>
+  <head>
+<link rel="stylesheet" href="/static/style.css" type="text/css" media="screen" >
+      {% block headextera %}{% endblock %}
+  </head>
+  <body>
+    <div class="container">
+      <header>
+          <h1><a href="/">E voting system</a></h1>
+      </header>
+    {% if request.user.is_authenticated %}
+        سلام  {{  request.user.username}}
+
+        <a href="{% url 'elections' %}">elections</a>
+        <a href="{%url 'register' %}">register</a>
+        <a href="{%url 'logout' %}">logout</a><br>
+        {% if user.is_superuser %}
+            <a href="/admin">admin</a><br>
+        {% endif %}
+    {% else %}
+        <a href="{%url 'login' %}">login</a>
+    {% endif %}
+
+
+
+      {% block content %}
+
+      {% endblock content %}
+    </div>
+  </body>
+</html>
